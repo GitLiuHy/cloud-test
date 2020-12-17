@@ -1,0 +1,30 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka  #必须要加eureka  不加无法找到
+server:
+  port: 10001
+spring:
+  application:
+    name: member-fegin #eureka 服务名称
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
+          enabled: true
+        isolation:
+          thread: #线程池隔离  还有信号量隔离（用于网络没有操作的时候）  一般使用 线程隔离
+            timeoutInMilliseconds: 4000 #断路器超时时间，默认1000ms
+management: #开启服务监控
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+member:
+  userName: asss
