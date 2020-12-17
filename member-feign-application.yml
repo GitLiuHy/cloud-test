@@ -27,4 +27,4 @@ management: #开启服务监控
     health:
       show-details: always
 member:
-  userName: asss
+  userName: liuhaiyang
