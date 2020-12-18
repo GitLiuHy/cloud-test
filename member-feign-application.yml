@@ -27,4 +27,4 @@ management: #开启服务监控
     health:
       show-details: always
 member:
-  userName: 123
+  userName: 123神鼎飞丹砂
